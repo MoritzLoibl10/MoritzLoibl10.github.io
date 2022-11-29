@@ -1,0 +1,239 @@
+/* Setting default variables */
+:root{
+    --color1: #ccc;
+    --color2: rgb(0, 0, 0);
+    --fontFamDefault: "Montserrat";
+    --fontWeightDefault: 100;
+    --fontSizeNav: 1.3rem;
+    --fontSizeNav-sm: 1.1rem;
+    --fontSizeBig: 4.25rem;
+    --fontSizeMedium: 2.4rem;
+    --fontSizeSmall: 1.6rem;
+    --defaultTextShadow: 
+    0.01em 0 black,
+    0 0.01em black,
+    -0.01em 0 black,
+    0 -0.01em black,
+    -0.01em -0.01em black,
+    -0.01em 0.01em black,
+    0.01em -0.01em black,
+    0.01em 0.01em black;
+}
+
+
+
+/* Basic settings */
+    *{
+        box-sizing: border-box;
+        font: var(--fontWeightDefault);
+    }
+
+    body{
+        margin:0;
+    }
+
+    .list-item{
+        list-style-type: none;
+    }
+
+
+
+/* Navbar */
+    .nav-list{
+        background-color: var(--color1);
+        margin:0;
+        display: flex;
+    }
+    .link{
+        text-decoration: none;
+        background-color: var(--color1);
+        color: var(--color2);
+        font-family: var(--fontFamDefault);
+    }
+    .link:hover, .link-current{
+        background-color: var(--color2);
+        color: var(--color1);
+        text-decoration: none;
+        font-family: var(--fontFamDefault);
+    }
+
+
+
+/* Landingpage */
+    .landingpage{
+        position: relative;
+    }
+
+
+
+/* Landingpage Header */
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+
+    .landingpage-img{
+        width: 100%;
+        z-index: 0;
+    }
+    .landingpage-text{
+        margin: 0;
+        position: absolute;
+        left: 100px;
+        left: 5%;
+        z-index: 1;
+        color: var(--color1);
+        font-family: var(--fontFamDefault);
+        text-shadow: var(--defaultTextShadow);
+    }
+
+
+
+/* Landingpage Article */
+    .landingpage-article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto 14%;
+    }
+
+    .landingpage-article-details{
+        font-family: var(--fontFamDefault);
+        font-size: 1.4rem;
+        letter-spacing: 0.4px;
+        line-height: 120%;
+    }
+
+    .landingpage-article-headline{
+        font-family: var(--fontFamDefault);
+        font-size: 2.2rem;
+        margin: 20px 0;
+    }
+
+
+
+/* Landingpage Buttons */
+    .landingpage-buttons{
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 42%;
+        left: 5%;
+        width: 48vw;
+        justify-content: space-between;
+    }
+
+    .see-more{
+        box-shadow: 0 0 8px 2px rgba(3, 96, 124, 0.5), 0 0 8px 2px rgba(3, 96, 124, 0.5) inset;
+        border: 3px solid rgb(3, 96, 124);
+        background-color: transparent;
+        color: white;
+        width: 49%;
+        padding: 1.2% 6%;
+        z-index: 1;
+        font-size: var(--fontSizeSmall);
+        font-family: var(--fontFamDefault);
+        font-weight: 200;
+        transition: background-color 0.25s;
+    }
+
+    .see-more:hover{
+        background-color: rgb(3, 96, 124);
+        cursor: pointer;
+    }
+
+    .about-button{
+        width: 49%;
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.5), 0 0 8px 2px rgba(255, 255, 255, 0.5) inset;
+        border: 3px solid rgb(255, 255, 255);
+        background-color: transparent;
+        color: white;
+        padding: 1.2% 6%;
+        z-index: 1;
+        font-size: var(--fontSizeSmall);
+        font-family: var(--fontFamDefault);
+        font-weight: 200;
+        transition: background-color 0.25s;
+    }
+
+    .about-button:hover{
+        background-color: rgb(255, 255, 255);
+        color: black;
+        cursor: pointer;
+    }
+
+
+
+/* Media Queries for resizing the Website */
+    @media (max-width: 767px){
+        .header{
+            position: static;
+        }
+        .nav-list{
+            flex-direction: column;
+            padding: 0;
+        }
+        .list-item{
+            margin: 6px;
+        }
+        .link, .link-current, .link-hover{
+            font-size: var(--fontSizeNav);
+            width:100%;
+            display:flex;
+            justify-content: center;
+        }
+        .landingpage-text{
+            bottom: 47%;
+            left: 5%;
+            font-size: var(--fontSizeMedium);
+        }
+        .landingpage-buttons{
+            width: 60vw;
+        }
+    }
+    @media (max-width: 400px){
+        .landingpage-text{
+            font-size: 2rem;
+        }
+        .link, .link:hover, .link-current{
+            font-size: var(--fontSizeNav-sm);
+        }
+    }
+    @media (min-width: 768px){
+        .nav-list{
+            flex-direction: row;
+            justify-content: right;
+        }
+        .list-item{
+            margin: 14px;
+        }
+        .landingpage{
+            margin-top:53px;
+        }
+        .landingpage-text{
+            bottom:49%;
+            font-size: var(--fontSizeBig);
+        }
+        .link, .link:hover, .link-current{
+            font-size: var(--fontSizeNav);
+        }
+    }
+    @media (max-width: 1099px){
+        .landingpage-text{
+        font-size: 6vw;
+        }
+        .see-more{
+            font-size: 2vw;
+        }
+        .about-button{
+            font-size: 2vw;
+        }
+    }
+    @media (max-width: 1550px){
+        .landingpage-buttons{
+            bottom: 40%;
+        }
+    }
